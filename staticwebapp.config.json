@@ -29,6 +29,10 @@
       "serve": "/index.html"
     },
     {
+      "route": "/",
+      "serve": "/index.html"
+    },
+    {
       "route": "/*",
       "serve": "/index.html"
     }
