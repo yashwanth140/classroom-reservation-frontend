@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import BookClassroomPage from './pages/BookClassroomPage';
 import AdminApprovalPage from './pages/AdminApprovalpage';
 import DashboardPage from './pages/DashboardPage';
 import UserLoginPage from './pages/UserLoginPage';
-import ProtectedRoute from './components/ProtectedRoute';
-import AdminLoginPage from './pages/AdminLoginpage';
 import UserRegisterPage from './pages/UserRegisterPage';
-import './App.css';
+import AdminLoginPage from './pages/AdminLoginPage';
+import ProtectedRoute from './components/ProtectedRoute';
 import Homepage from './pages/HomePage';
+import './App.css';
 
 export default function App() {
   const [isAdmin, setIsAdmin] = useState(null);
