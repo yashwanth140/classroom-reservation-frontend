@@ -1,8 +1,7 @@
-// src/pages/LoginPage.js
+// src/pages/HomePage.js
 import React from 'react';
 
-
-const LoginPage = () => {
+const HomePage = () => {   
   return (
     <div className="homepage-container">
       <div className="welcome-card animate-slide">
@@ -19,4 +18,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default HomePage; 

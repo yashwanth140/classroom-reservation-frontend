@@ -9,6 +9,7 @@ import UserLoginPage from './pages/UserLoginPage';
 import UserRegisterPage from './pages/UserRegisterPage';
 import ProtectedRoute from './components/ProtectedRoute';
 import './App.css';
+import Homepage from './pages/HomePage';
 
 export default function App() {
   const [isAdmin, setIsAdmin] = useState(null);
@@ -32,7 +33,7 @@ export default function App() {
     <Router>
       <Navbar userEmail={loggedInEmail} onLogout={handleLogout} />
       <Routes>
-        <Route path="/" element={<UserLoginPage />} />
+        <Route path="/" element={<Homepage />} />
         <Route path="/book" element={<BookClassroomPage />} />
         <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="/admin/login" element={<AdminLoginPage setIsAdmin={setIsAdmin} />} />
