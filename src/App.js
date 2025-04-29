@@ -3,11 +3,11 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import BookClassroomPage from './pages/BookClassroomPage';
 import AdminApprovalPage from './pages/AdminApprovalpage';
-import AdminLoginPage from './pages/AdminLoginTemp';
 import DashboardPage from './pages/DashboardPage';
 import UserLoginPage from './pages/UserLoginPage';
-import UserRegisterPage from './pages/UserRegisterTemp';
 import ProtectedRoute from './components/ProtectedRoute';
+import AdminLoginPage from './pages/AdminLoginpage';
+import UserRegisterPage from './pages/UserRegisterPage';
 import './App.css';
 import Homepage from './pages/HomePage';
 
