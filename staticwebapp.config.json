@@ -1,9 +1,40 @@
 {
   "routes": [
     {
+      "route": "/api/*",
+      "rewrite": "https://classroom-reservation-backend-fhb6gjdjgrgbh0fz.westus-01.azurewebsites.net/api/:*"
+    },
+    {
+      "route": "/admin/login",
+      "serve": "/index.html"
+    },
+    {
+      "route": "/user/login",
+      "serve": "/index.html"
+    },
+    {
+      "route": "/user/register",
+      "serve": "/index.html"
+    },
+    {
+      "route": "/admin/approve",
+      "serve": "/index.html"
+    },
+    {
+      "route": "/book",
+      "serve": "/index.html"
+    },
+    {
+      "route": "/dashboard",
+      "serve": "/index.html"
+    },
+    {
       "route": "/*",
-      "serve": "/index.html",
-      "statusCode": 200
+      "serve": "/index.html"
     }
-  ]
+  ],
+  "navigationFallback": {
+    "rewrite": "/index.html",
+    "exclude": ["/api/*"]
+  }
 }
