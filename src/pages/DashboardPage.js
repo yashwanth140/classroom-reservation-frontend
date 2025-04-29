@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import FeedbackForm from '../components/FeedbackForm';
 import Notifications from '../components/Notifications';
+import BACKEND_URL from '../api'; // ✅ backend config
 
 export default function DashboardPage() {
   const [reservations, setReservations] = useState([]);
@@ -16,7 +17,7 @@ export default function DashboardPage() {
   useEffect(() => {
     const fetchReservations = async () => {
       try {
-        const res = await axios.get('/api/reservations');
+        const res = await axios.get(`${BACKEND_URL}/api/reservations`);
         setReservations(res.data);
       } catch (err) {
         console.error('Error loading reservations:', err);

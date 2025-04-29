@@ -1,6 +1,7 @@
 // src/pages/AdminLoginPage.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import BACKEND_URL from '../api'; // ✅ Import backend URL
 
 export default function AdminLoginPage({ setIsAdmin }) {
   const [username, setUsername] = useState('');
@@ -21,7 +22,10 @@ export default function AdminLoginPage({ setIsAdmin }) {
     }
 
     try {
-      const res = await axios.post('/api/admin/login', { username, password });
+      const res = await axios.post(`${BACKEND_URL}/api/admin/login`, {
+        username,
+        password
+      });
 
       if (res.data.success) {
         localStorage.setItem('isAdmin', 'true');

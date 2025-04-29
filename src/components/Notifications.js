@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import BACKEND_URL from '../api'; // ✅ Import backend URL
 
 export default function Notifications({ userSSN }) {
   const [notifications, setNotifications] = useState([]);
@@ -7,9 +8,8 @@ export default function Notifications({ userSSN }) {
   useEffect(() => {
     if (!userSSN) return;
 
-    // ✅ Fetch notifications using userSSN from localStorage
     axios
-      .get(`/api/notifications?ssn=${userSSN}`)
+      .get(`${BACKEND_URL}/api/notifications?ssn=${userSSN}`) // ✅ Fixed URL
       .then((res) => setNotifications(res.data))
       .catch((err) => console.error('Failed to fetch notifications:', err));
   }, [userSSN]);

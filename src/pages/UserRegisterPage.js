@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import BACKEND_URL from '../api'; // ✅ Use centralized backend config
 
 export default function UserRegisterPage() {
   const [ssn, setSSN] = useState('');
@@ -16,7 +17,7 @@ export default function UserRegisterPage() {
     }
 
     try {
-      const res = await axios.post('/api/user/register', {
+      const res = await axios.post(`${BACKEND_URL}/api/user/register`, {
         ssn,
         name,
         email,

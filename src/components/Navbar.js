@@ -20,49 +20,50 @@ export default function Navbar() {
   };
 
   return (
-    <nav style={{
-      display: 'flex',
-      justifyContent: 'flex-end',
-      alignItems: 'center',
-      gap: '1.5rem',
-      padding: '1rem 2rem',
-      backgroundColor: '#f4f6f8',
-      boxShadow: '0 2px 5px rgba(0,0,0,0.05)'
-    }}>
-      <a href="/" style={linkStyle}>Home</a>
-      <a href="/book" style={linkStyle}>Book Room</a>
-      <a href="/admin/login" style={linkStyle}>Admin Panel</a>
-      <a href="/dashboard" style={linkStyle}>Dashboard</a>
+    <nav style={styles.nav}>
+      <a href="/" style={styles.link}>Home</a>
+      <a href="/book" style={styles.link}>Book Room</a>
+      <a href="/admin/login" style={styles.link}>Admin Panel</a>
+      <a href="/dashboard" style={styles.link}>Dashboard</a>
 
       {isLoggedIn && (
         <>
-          {isAdmin && <span style={welcomeStyle}>Welcome Admin!</span>}
-          {userEmail && <span style={welcomeStyle}>Welcome, {getNameFromEmail(userEmail)}!</span>}
-          <button style={logoutStyle} onClick={handleLogout}>Logout</button>
+          {isAdmin && <span style={styles.welcome}>Welcome Admin!</span>}
+          {userEmail && <span style={styles.welcome}>Welcome, {getNameFromEmail(userEmail)}!</span>}
+          <button style={styles.logout} onClick={handleLogout}>Logout</button>
         </>
       )}
     </nav>
   );
 }
 
-const linkStyle = {
-  textDecoration: 'none',
-  fontWeight: '600',
-  color: '#4f46e5',
-  transition: 'color 0.2s ease',
-};
-
-const welcomeStyle = {
-  fontWeight: '500',
-  color: '#374151',
-};
-
-const logoutStyle = {
-  backgroundColor: '#7c3aed',
-  color: '#fff',
-  border: 'none',
-  padding: '0.5rem 1rem',
-  fontWeight: '600',
-  borderRadius: '8px',
-  cursor: 'pointer',
+const styles = {
+  nav: {
+    display: 'flex',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    gap: '1.5rem',
+    padding: '1rem 2rem',
+    backgroundColor: '#f4f6f8',
+    boxShadow: '0 2px 5px rgba(0,0,0,0.05)'
+  },
+  link: {
+    textDecoration: 'none',
+    fontWeight: '600',
+    color: '#4f46e5',
+    transition: 'color 0.2s ease',
+  },
+  welcome: {
+    fontWeight: '500',
+    color: '#374151',
+  },
+  logout: {
+    backgroundColor: '#7c3aed',
+    color: '#fff',
+    border: 'none',
+    padding: '0.5rem 1rem',
+    fontWeight: '600',
+    borderRadius: '8px',
+    cursor: 'pointer',
+  }
 };

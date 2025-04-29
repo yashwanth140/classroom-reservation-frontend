@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import BACKEND_URL from '../api'; // ✅ backend base URL
 
 export default function AdminApprovalPage() {
   const [pending, setPending] = useState([]);
@@ -8,7 +9,7 @@ export default function AdminApprovalPage() {
 
   const fetchPending = async () => {
     try {
-      const res = await axios.get('/api/reservations/pending');
+      const res = await axios.get(`${BACKEND_URL}/api/reservations/pending`);
       setPending(res.data);
     } catch (err) {
       console.error('Fetch error:', err);
@@ -29,7 +30,7 @@ export default function AdminApprovalPage() {
   const handleApprove = async (id, room, rawDate, start, end) => {
     const date = new Date(rawDate).toISOString().split('T')[0];
     try {
-      await axios.put(`/api/reservations/${id}/approve`, {
+      await axios.put(`${BACKEND_URL}/api/reservations/${id}/approve`, {
         Room_ID: room,
         Reservation_date: date,
         Start_time: start,
@@ -45,7 +46,7 @@ export default function AdminApprovalPage() {
 
   const handleReject = async (id) => {
     try {
-      await axios.put(`/api/reservations/${id}/reject`);
+      await axios.put(`${BACKEND_URL}/api/reservations/${id}/reject`);
       alert('Reservation rejected');
       fetchPending();
     } catch (err) {

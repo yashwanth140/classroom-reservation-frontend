@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import BACKEND_URL from '../api';
 
 const FeedbackForm = ({ userSSN }) => {
   const [rating, setRating] = useState('');
@@ -9,7 +10,11 @@ const FeedbackForm = ({ userSSN }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('/api/feedback/submit', { rating, comment, user_ssn: userSSN });
+      await axios.post(`${BACKEND_URL}/api/feedback/submit`, {
+        rating,
+        comment,
+        user_ssn: userSSN
+      });
       setSuccess(true);
       setRating('');
       setComment('');
@@ -17,6 +22,7 @@ const FeedbackForm = ({ userSSN }) => {
       alert('Error submitting feedback');
     }
   };
+  
 
   return (
     <div>

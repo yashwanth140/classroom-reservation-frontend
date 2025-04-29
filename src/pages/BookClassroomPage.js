@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import BACKEND_URL from '../api'; // ✅ backend URL config
 
 export default function BookClassroomPage() {
   const navigate = useNavigate();
@@ -24,7 +25,7 @@ export default function BookClassroomPage() {
 
   const checkAvailability = async () => {
     try {
-      const res = await axios.get(`/api/reservations/available-rooms`, {
+      const res = await axios.get(`${BACKEND_URL}/api/reservations/available-rooms`, {
         params: { date, start, end }
       });
       setRooms(res.data);
@@ -42,19 +43,16 @@ export default function BookClassroomPage() {
     const endTime = new Date(`${date}T${end}`);
     const now = new Date();
 
-    
     if (startTime < now) {
       alert('Start time cannot be in the past.');
       return;
     }
 
-    
     if (startTime >= endTime) {
       alert('End time must be after start time.');
       return;
     }
 
-    
     const durationHours = (endTime - startTime) / (1000 * 60 * 60);
     if (durationHours < 1 || durationHours > 3) {
       alert('Booking duration must be between 1 and 3 hours.');
@@ -62,7 +60,7 @@ export default function BookClassroomPage() {
     }
 
     try {
-      await axios.post('/api/reservations', {
+      await axios.post(`${BACKEND_URL}/api/reservations`, {
         Reservation_type: type,
         User_SSN: ssn,
         Room_ID: selectedRoom,
@@ -93,7 +91,7 @@ export default function BookClassroomPage() {
           type="date"
           value={date}
           onChange={(e) => setDate(e.target.value)}
-          min={new Date().toISOString().split("T")[0]} 
+          min={new Date().toISOString().split("T")[0]}
         />
 
         <label>Start Time</label>

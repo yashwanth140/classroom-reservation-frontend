@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import LoginPage from './pages/LoginPage';
 import BookClassroomPage from './pages/BookClassroomPage';
 import AdminApprovalPage from './pages/AdminApprovalpage';
 import AdminLoginPage from './pages/AdminLoginpage';
@@ -33,14 +32,12 @@ export default function App() {
     <Router>
       <Navbar userEmail={loggedInEmail} onLogout={handleLogout} />
       <Routes>
-        <Route path="/" element={<LoginPage />} />
+        <Route path="/" element={<UserLoginPage />} />
         <Route path="/book" element={<BookClassroomPage />} />
         <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="/admin/login" element={<AdminLoginPage setIsAdmin={setIsAdmin} />} />
         <Route path="/user/login" element={<UserLoginPage />} />
         <Route path="/user/register" element={<UserRegisterPage />} />
-
-        {/* ✅ Only this protected route for admin page */}
         <Route
           path="/admin/approve"
           element={
@@ -51,7 +48,7 @@ export default function App() {
         />
       </Routes>
       <footer className="footer">
-        Project devloped by Yashwanth Reddy Kantareddy
+        Project developed by Yashwanth Reddy Kantareddy
       </footer>
     </Router>
   );
