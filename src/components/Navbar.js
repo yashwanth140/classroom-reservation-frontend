@@ -1,10 +1,11 @@
+// src/components/Navbar.js
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Navbar() {
   const navigate = useNavigate();
   const isAdmin = localStorage.getItem('isAdmin') === 'true';
-  const user = JSON.parse(localStorage.getItem('user')); // assume stored as JSON
+  const user = JSON.parse(localStorage.getItem('user'));
   const userEmail = user?.email;
   const isLoggedIn = isAdmin || userEmail;
 
@@ -21,10 +22,10 @@ export default function Navbar() {
 
   return (
     <nav style={styles.nav}>
-      <a href="/" style={styles.link}>Home</a>
-      <a href="/book" style={styles.link}>Book Room</a>
-      <a href="/admin/login" style={styles.link}>Admin Panel</a>
-      <a href="/dashboard" style={styles.link}>Dashboard</a>
+      <Link to="/" style={styles.link}>Home</Link>
+      <Link to="/book" style={styles.link}>Book Room</Link>
+      <Link to="/admin/login" style={styles.link}>Admin Panel</Link>
+      <Link to="/dashboard" style={styles.link}>Dashboard</Link>
 
       {isLoggedIn && (
         <>
@@ -51,7 +52,6 @@ const styles = {
     textDecoration: 'none',
     fontWeight: '600',
     color: '#4f46e5',
-    transition: 'color 0.2s ease',
   },
   welcome: {
     fontWeight: '500',

@@ -6,11 +6,12 @@
     },
     {
       "route": "/*",
-      "serve": "/index.html"
+      "serve": "/index.html",
+      "statusCode": 200
     }
   ],
   "navigationFallback": {
     "rewrite": "/index.html",
-    "exclude": ["/api/*"]
+    "exclude": ["/api/*", "/static/*", "/images/*", "/css/*", "/js/*"]
   }
 }
