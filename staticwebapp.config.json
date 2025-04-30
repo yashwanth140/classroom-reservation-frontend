@@ -15,9 +15,11 @@
     "exclude": [
       "/api/*",
       "/static/*",
-      "/images/*",
+      "/js/*",
       "/css/*",
-      "/js/*"
+      "/images/*",
+      "/favicon.ico",
+      "/manifest.json"
     ]
   }
 }
