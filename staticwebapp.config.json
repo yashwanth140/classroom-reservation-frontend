@@ -10,16 +10,12 @@
       "statusCode": 200
     }
   ],
+  "mimeTypes": {
+    ".js": "application/javascript",
+    ".css": "text/css"
+  },
   "navigationFallback": {
     "rewrite": "/index.html",
-    "exclude": [
-      "/api/*",
-      "/static/*",
-      "/js/*",
-      "/css/*",
-      "/images/*",
-      "/favicon.ico",
-      "/manifest.json"
-    ]
+    "exclude": ["/api/*", "/static/*", "/images/*", "/css/*", "/js/*"]
   }
 }
